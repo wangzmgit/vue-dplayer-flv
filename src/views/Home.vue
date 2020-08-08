@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <d-player class="player" :options="options" ref="player"></d-player>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import VueDPlayer from 'vue-dplayer'
+import 'vue-dplayer/dist/vue-dplayer.css'
 export default {
-  name: 'Home',
+  data(){
+    return{
+      options:{
+        video:{
+          url:'./video/1.flv',
+          type:'flv'
+        }
+      }
+    }
+  },
   components: {
-    HelloWorld
-  }
+    'd-player': VueDPlayer,
+  },
+
 }
 </script>
+
+<style scoped>
+.home{
+  width: 60%;
+  margin: auto;
+}
+</style>
